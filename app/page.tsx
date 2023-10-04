@@ -13,7 +13,7 @@ export default function Home() {
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
 
-  const [fuel, setFuel] = useState("");
+  const [fuel, setFuel] = useState("gas");
   const [year, setYear] = useState("2022");
 
   const [limit, setLimit] = useState("10");
@@ -46,17 +46,14 @@ export default function Home() {
     <main className="overflow-hidden">
       <Hero />
       <div className="mt-12 padding-x padding-y max-width" id="discover">
-        <div className="home__text-container">
+        <div className="home__text-container" id="car-catalogue">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
           <p>Explore the cars you might like</p>
         </div>
         <div className="home__filters">
           <SearchBar setManufacturer={setManufacturer} setModel={setModel} />
           <div className="home__filter-container">
-            <CustomFilter title="fuel" options={fuels} setFilter={setFuel} />
-            <div className="home__filter-container">
-              <CustomFilter title="fuel" options={fuels} setFilter={setYear} />
-            </div>
+            <CustomFilter title="year" options={yearsOfProduction} setFilter={setYear} />
           </div>
 
           {allCars.length > 0 ? (
